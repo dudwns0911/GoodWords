@@ -1,8 +1,22 @@
 package com.example.goodwords;
 
+import android.app.Activity;
+import android.content.ComponentName;
+import android.content.Context;
+import android.content.Intent;
+import android.content.pm.PackageManager;
+import android.content.pm.ResolveInfo;
 import android.os.Bundle;
+import android.view.LayoutInflater;
 import android.view.View;
 import android.view.Menu;
+import android.view.ViewGroup;
+import android.widget.BaseAdapter;
+import android.widget.Button;
+import android.widget.GridView;
+import android.widget.ImageButton;
+import android.widget.ImageView;
+import android.widget.Toast;
 
 import com.google.android.material.floatingactionbutton.FloatingActionButton;
 import com.google.android.material.snackbar.Snackbar;
@@ -16,7 +30,14 @@ import androidx.drawerlayout.widget.DrawerLayout;
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.appcompat.widget.Toolbar;
 
+import java.util.List;
+
 public class MainActivity extends AppCompatActivity {
+
+    Activity act = this;
+    GridView gridView;
+    private List<ResolveInfo> apps;
+    private PackageManager pm;
 
     private AppBarConfiguration mAppBarConfiguration;
 
@@ -45,6 +66,58 @@ public class MainActivity extends AppCompatActivity {
         NavController navController = Navigation.findNavController(this, R.id.nav_host_fragment);
         NavigationUI.setupActionBarWithNavController(this, navController, mAppBarConfiguration);
         NavigationUI.setupWithNavController(navigationView, navController);
+
+        Intent intent = new Intent(Intent.ACTION_MAIN, null);
+        intent. addCategory(Intent.CATEGORY_LAUNCHER);
+
+        pm = getPackageManager();
+        apps = pm.queryIntentActivities(intent, 0);
+
+        setContentView(R.layout.fragment_gallery);
+
+         gridView = (GridView) findViewById(R.id.GridView);
+         gridView.setAdapter(new gridAdapter());
+    }
+
+    public class gridAdapter extends BaseAdapter {
+        LayoutInflater inflater;
+
+        public gridAdapter() {
+            inflater =(LayoutInflater) act.getSystemService(Context.LAYOUT_INFLATER_SERVICE);
+        }
+
+        public final int getCount() {
+            return apps.size();
+        }
+
+        public final Object getItem(int position) {
+            return  apps.get(position);
+        }
+        public final long getItemId(int position) {
+            return position;
+        }
+
+        @Override
+        public View getView(int position, View convertView, ViewGroup parent) {
+            if (convertView ==null) {
+                convertView = inflater.inflate(R.layout.item, parent,false);
+            }
+            final ResolveInfo info = apps.get(position);
+            ImageButton imageButton = (ImageButton) convertView.findViewById(R.id.nightview);
+            ImageButton imageButton1 = (ImageButton) convertView.findViewById(R.id.seoulview);
+            imageButton.setImageDrawable(info.activityInfo.loadIcon(getPackageManager()));
+            imageButton1.setImageDrawable(info.activityInfo.loadIcon(getPackageManager()));
+
+            imageButton.setOnClickListener(new Button.OnClickListener() {
+                public void onClick(View v) {
+                    Intent intent =new Intent(Intent.ACTION_RUN);
+                    intent.setComponent(new ComponentName(info.activityInfo.packageName,info.activityInfo.name));
+                    act.startActivity(intent);
+                    String msg = info.activityInfo.packageName + ", " + info.activityInfo.name;
+                }
+            });
+            return convertView;
+        }
     }
 
     @Override
