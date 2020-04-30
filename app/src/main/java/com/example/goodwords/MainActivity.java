@@ -35,7 +35,6 @@ public class MainActivity extends AppCompatActivity {
 
     Activity act = this;
     GridView gridView;
-    private List<ResolveInfo> apps;
     private PackageManager pm;
 
     private AppBarConfiguration mAppBarConfiguration;
@@ -66,59 +65,6 @@ public class MainActivity extends AppCompatActivity {
         NavigationUI.setupActionBarWithNavController(this, navController, mAppBarConfiguration);
         NavigationUI.setupWithNavController(navigationView, navController);
 
-        Intent intent = new Intent(Intent.ACTION_MAIN, null);
-        intent.addCategory(Intent.CATEGORY_LAUNCHER);
-
-        pm = getPackageManager();
-        apps = pm.queryIntentActivities(intent, 0);
-
-        setContentView(R.layout.fragment_gallery);
-
-        gridView = (GridView) findViewById(R.id.GridView);
-        gridView.setAdapter(new gridAdapter());
-    }
-
-    public class gridAdapter<intent, findviewById> extends BaseAdapter {
-        LayoutInflater inflater;
-
-        public final int getCount() {
-            return apps.size();
-        }
-
-        public final Object getItem(int position) {
-            return apps.get(position);
-        }
-
-        public final long getItemId(int position) {
-            return position;
-        }
-
-        @Override
-        public View getView(int position, View convertView, ViewGroup parent) {
-            if (convertView == null) {
-                convertView = inflater.inflate(R.layout.item, parent, false);
-            }
-            final ResolveInfo info = apps.get(position);
-            ImageButton imageButton = (ImageButton) convertView.findViewById(R.id.nightview);
-            ImageButton imageButton1 = (ImageButton) convertView.findViewById(R.id.seoulview);
-            ImageButton imageButton2 = (ImageButton) convertView.findViewById(R.id.korea);
-            ImageButton imageButton3 = (ImageButton) convertView.findViewById(R.id.busan);
-            imageButton.setImageDrawable(info.activityInfo.loadIcon(getPackageManager()));
-            imageButton1.setImageDrawable(info.activityInfo.loadIcon(getPackageManager()));
-            imageButton2.setImageDrawable(info.activityInfo.loadIcon(getPackageManager()));
-            imageButton3.setImageDrawable(info.activityInfo.loadIcon(getPackageManager()));
-
-
-            imageButton.setOnClickListener(new Button.OnClickListener() {
-                public void onClick(View v) {
-                    Intent intent = new Intent(Intent.ACTION_RUN);
-                    intent.setComponent(new ComponentName(info.activityInfo.packageName, info.activityInfo.name));
-                    act.startActivity(intent);
-                    String msg = info.activityInfo.packageName + ", " + info.activityInfo.name;
-                }
-            });
-            return convertView;
-        }
     }
 
     @Override
