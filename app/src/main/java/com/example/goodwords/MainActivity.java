@@ -7,6 +7,7 @@ import android.content.Intent;
 import android.content.pm.PackageManager;
 import android.content.pm.ResolveInfo;
 import android.os.Bundle;
+import android.provider.ContactsContract;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.Menu;
@@ -15,8 +16,6 @@ import android.widget.BaseAdapter;
 import android.widget.Button;
 import android.widget.GridView;
 import android.widget.ImageButton;
-import android.widget.ImageView;
-import android.widget.Toast;
 
 import com.google.android.material.floatingactionbutton.FloatingActionButton;
 import com.google.android.material.snackbar.Snackbar;
@@ -68,50 +67,52 @@ public class MainActivity extends AppCompatActivity {
         NavigationUI.setupWithNavController(navigationView, navController);
 
         Intent intent = new Intent(Intent.ACTION_MAIN, null);
-        intent. addCategory(Intent.CATEGORY_LAUNCHER);
+        intent.addCategory(Intent.CATEGORY_LAUNCHER);
 
         pm = getPackageManager();
         apps = pm.queryIntentActivities(intent, 0);
 
         setContentView(R.layout.fragment_gallery);
 
-         gridView = (GridView) findViewById(R.id.GridView);
-         gridView.setAdapter(new gridAdapter());
+        gridView = (GridView) findViewById(R.id.GridView);
+        gridView.setAdapter(new gridAdapter());
     }
 
-    public class gridAdapter extends BaseAdapter {
+    public class gridAdapter<intent, findviewById> extends BaseAdapter {
         LayoutInflater inflater;
-
-        public gridAdapter() {
-            inflater =(LayoutInflater) act.getSystemService(Context.LAYOUT_INFLATER_SERVICE);
-        }
 
         public final int getCount() {
             return apps.size();
         }
 
         public final Object getItem(int position) {
-            return  apps.get(position);
+            return apps.get(position);
         }
+
         public final long getItemId(int position) {
             return position;
         }
 
         @Override
         public View getView(int position, View convertView, ViewGroup parent) {
-            if (convertView ==null) {
-                convertView = inflater.inflate(R.layout.item, parent,false);
+            if (convertView == null) {
+                convertView = inflater.inflate(R.layout.item, parent, false);
             }
             final ResolveInfo info = apps.get(position);
             ImageButton imageButton = (ImageButton) convertView.findViewById(R.id.nightview);
             ImageButton imageButton1 = (ImageButton) convertView.findViewById(R.id.seoulview);
+            ImageButton imageButton2 = (ImageButton) convertView.findViewById(R.id.korea);
+            ImageButton imageButton3 = (ImageButton) convertView.findViewById(R.id.busan);
             imageButton.setImageDrawable(info.activityInfo.loadIcon(getPackageManager()));
             imageButton1.setImageDrawable(info.activityInfo.loadIcon(getPackageManager()));
+            imageButton2.setImageDrawable(info.activityInfo.loadIcon(getPackageManager()));
+            imageButton3.setImageDrawable(info.activityInfo.loadIcon(getPackageManager()));
+
 
             imageButton.setOnClickListener(new Button.OnClickListener() {
                 public void onClick(View v) {
-                    Intent intent =new Intent(Intent.ACTION_RUN);
-                    intent.setComponent(new ComponentName(info.activityInfo.packageName,info.activityInfo.name));
+                    Intent intent = new Intent(Intent.ACTION_RUN);
+                    intent.setComponent(new ComponentName(info.activityInfo.packageName, info.activityInfo.name));
                     act.startActivity(intent);
                     String msg = info.activityInfo.packageName + ", " + info.activityInfo.name;
                 }
