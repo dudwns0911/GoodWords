@@ -8,15 +8,27 @@
 
     <ImageButton
         android:id="@+id/nightview"
-        android:layout_width="72dp"
-        android:layout_height="72dp"
+        android:layout_width="match_parent"
+        android:layout_height="100dp"
         android:layout_gravity="center"
         android:src="@drawable/nightview"/>
     <ImageButton
         android:id="@+id/seoulview"
-        android:layout_width="72dp"
-        android:layout_height="72dp"
+        android:layout_width="match_parent"
+        android:layout_height="100dp"
         android:layout_gravity="center"
         android:src="@drawable/seoulview"/>
+    <ImageButton
+        android:id="@+id/korea"
+        android:layout_width="match_parent"
+        android:layout_height="100dp"
+        android:layout_gravity="center"
+        android:src="@drawable/korea"/>
+    <ImageButton
+        android:id="@+id/busan"
+        android:layout_width="match_parent"
+        android:layout_height="100dp"
+        android:layout_gravity="center"
+        android:src="@drawable/busan"/>
 
 </LinearLayout>

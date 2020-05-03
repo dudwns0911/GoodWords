@@ -18,7 +18,14 @@
             android:gravity="center"
             android:numColumns="auto_fit"
             android:stretchMode="columnWidth"/>
-
+        <TextView
+            android:id="@+id/text_gallery"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="안녕하세요"
+            android:textSize="30sp"
+            android:layout_gravity="center"
+            android:textAlignment="center"/>
 
 
 
