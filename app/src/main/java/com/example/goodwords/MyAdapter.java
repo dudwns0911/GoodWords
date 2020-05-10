@@ -26,7 +26,7 @@ public class MyAdapter extends RecyclerView.Adapter<MyAdapter.ViewHolder> {
         }
     }
 
-    MyAdapter(ArrayList<Gallery>movieList){
+    public MyAdapter(ArrayList<Gallery> movieList){
         mMovieData = movieList;
     }
 
