@@ -11,8 +11,14 @@ import androidx.annotation.Nullable;
 import androidx.fragment.app.Fragment;
 import androidx.lifecycle.Observer;
 import androidx.lifecycle.ViewModelProviders;
+import androidx.recyclerview.widget.LinearLayoutManager;
+import androidx.recyclerview.widget.RecyclerView;
 
+import com.example.goodwords.Gallery;
+import com.example.goodwords.MyAdapter;
 import com.example.goodwords.R;
+
+import java.util.ArrayList;
 
 public class HomeFragment extends Fragment {
 
@@ -25,4 +31,5 @@ public class HomeFragment extends Fragment {
         View root = inflater.inflate(R.layout.fragment_home, container, false);
         return root;
     }
+
 }

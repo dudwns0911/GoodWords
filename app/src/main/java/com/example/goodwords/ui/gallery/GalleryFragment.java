@@ -13,8 +13,14 @@ import androidx.appcompat.app.AppCompatActivity;
 import androidx.fragment.app.Fragment;
 import androidx.lifecycle.Observer;
 import androidx.lifecycle.ViewModelProviders;
+import androidx.recyclerview.widget.LinearLayoutManager;
+import androidx.recyclerview.widget.RecyclerView;
 
+import com.example.goodwords.Gallery;
+import com.example.goodwords.MyAdapter;
 import com.example.goodwords.R;
+
+import java.util.ArrayList;
 
 public class GalleryFragment extends Fragment {
 
@@ -25,7 +31,19 @@ public class GalleryFragment extends Fragment {
         galleryViewModel =
                 ViewModelProviders.of(this).get(GalleryViewModel.class);
         View root = inflater.inflate(R.layout.fragment_gallery, container, false);
-
         return root;
+    }
+
+    @Override
+    public void onViewCreated(@NonNull View view, @Nullable Bundle savedInstanceState) {
+        super.onViewCreated(view, savedInstanceState);
+        ArrayList<Gallery> list = new ArrayList<>();
+        list.add(new Gallery(getActivity().getDrawable(R.drawable.korea),"색깔1"));
+
+        RecyclerView recyclerView = view.findViewById(R.id.recycler1);
+        recyclerView.setLayoutManager(new LinearLayoutManager(getContext()));
+
+        MyAdapter adapter = new MyAdapter(list);
+        recyclerView.setAdapter(adapter);
     }
 }
