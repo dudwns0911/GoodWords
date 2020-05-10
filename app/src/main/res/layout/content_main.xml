@@ -18,20 +18,4 @@
         app:layout_constraintTop_toTopOf="parent"
         app:navGraph="@navigation/mobile_navigation" />
 
-    <LinearLayout
-        android:layout_width="match_parent"
-        android:layout_height="match_parent"
-        android:gravity="center">
-
-        <TextView
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:text="환영합니다 시작하려면 왼쪽상단의 가로줄 3개를 누르세요"
-            android:textAlignment="center"
-            android:textSize="30sp"
-            tools:ignore="MissingConstraints" />
-
-
-    </LinearLayout>
-
 </androidx.constraintlayout.widget.ConstraintLayout>
