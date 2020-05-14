@@ -30,7 +30,7 @@ public class GalleryFragment extends Fragment {
                              ViewGroup container, Bundle savedInstanceState) {
         galleryViewModel =
                 ViewModelProviders.of(this).get(GalleryViewModel.class);
-        View root = inflater.inflate(R.layout.fragment_gallery, container, false);
+        View root = inflater.inflate(R.layout.fragment_home, container, false);
         return root;
     }
 
@@ -39,6 +39,12 @@ public class GalleryFragment extends Fragment {
         super.onViewCreated(view, savedInstanceState);
         ArrayList<Gallery> list = new ArrayList<>();
         list.add(new Gallery(getActivity().getDrawable(R.drawable.korea),"색깔1"));
+        list.add(new Gallery(getActivity().getDrawable(R.drawable.korea),"색깔1"));
+        list.add(new Gallery(getActivity().getDrawable(R.drawable.korea),"색깔1"));
+        list.add(new Gallery(getActivity().getDrawable(R.drawable.korea),"색깔1"));
+        list.add(new Gallery(getActivity().getDrawable(R.drawable.korea),"색깔1"));
+        list.add(new Gallery(getActivity().getDrawable(R.drawable.korea),"색깔1"));
+
 
         RecyclerView recyclerView = view.findViewById(R.id.recycler1);
         recyclerView.setLayoutManager(new LinearLayoutManager(getContext()));
