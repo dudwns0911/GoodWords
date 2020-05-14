@@ -39,6 +39,12 @@ public class GalleryFragment extends Fragment {
         super.onViewCreated(view, savedInstanceState);
         ArrayList<Gallery> list = new ArrayList<>();
         list.add(new Gallery(getActivity().getDrawable(R.drawable.korea),"색깔1"));
+        list.add(new Gallery(getActivity().getDrawable(R.drawable.korea),"색깔1"));
+        list.add(new Gallery(getActivity().getDrawable(R.drawable.korea),"색깔1"));
+        list.add(new Gallery(getActivity().getDrawable(R.drawable.korea),"색깔1"));
+        list.add(new Gallery(getActivity().getDrawable(R.drawable.korea),"색깔1"));
+        list.add(new Gallery(getActivity().getDrawable(R.drawable.korea),"색깔1"));
+
 
         RecyclerView recyclerView = view.findViewById(R.id.recycler1);
         recyclerView.setLayoutManager(new LinearLayoutManager(getContext()));
