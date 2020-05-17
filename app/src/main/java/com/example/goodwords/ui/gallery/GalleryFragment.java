@@ -41,6 +41,12 @@ public class GalleryFragment extends Fragment {
         list.add(new Gallery(getActivity().getDrawable(R.drawable.drawble1)));
         list.add(new Gallery(getActivity().getDrawable(R.drawable.drawble2)));
         list.add(new Gallery(getActivity().getDrawable(R.drawable.drawble3)));
+        list.add(new Gallery(getActivity().getDrawable(R.drawable.drawable101)));
+        list.add(new Gallery(getActivity().getDrawable(R.drawable.drawable102)));
+        list.add(new Gallery(getActivity().getDrawable(R.drawable.drawable103)));
+        list.add(new Gallery(getActivity().getDrawable(R.drawable.drawable104)));
+        list.add(new Gallery(getActivity().getDrawable(R.drawable.drawable105)));
+        list.add(new Gallery(getActivity().getDrawable(R.drawable.drawable106)));
 
 
 
