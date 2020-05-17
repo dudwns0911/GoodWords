@@ -46,8 +46,6 @@ public class MyAdapter extends RecyclerView.Adapter<MyAdapter.ViewHolder> {
     @Override
     public void onBindViewHolder(@NonNull MyAdapter.ViewHolder holder, int position) {
         holder.imageView.setImageDrawable(mMovieData.get(position).drawable);
-        String text = mMovieData.get(position).text;
-        holder.textView.setText(text);
 
     }
 
