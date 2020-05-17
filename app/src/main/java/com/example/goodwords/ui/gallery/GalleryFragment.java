@@ -38,15 +38,15 @@ public class GalleryFragment extends Fragment {
     public void onViewCreated(@NonNull View view, @Nullable Bundle savedInstanceState) {
         super.onViewCreated(view, savedInstanceState);
         ArrayList<Gallery> list = new ArrayList<>();
-        list.add(new Gallery(getActivity().getDrawable(R.drawable.drawble1)));
-        list.add(new Gallery(getActivity().getDrawable(R.drawable.drawble2)));
-        list.add(new Gallery(getActivity().getDrawable(R.drawable.drawble3)));
-        list.add(new Gallery(getActivity().getDrawable(R.drawable.drawable101)));
-        list.add(new Gallery(getActivity().getDrawable(R.drawable.drawable102)));
-        list.add(new Gallery(getActivity().getDrawable(R.drawable.drawable103)));
-        list.add(new Gallery(getActivity().getDrawable(R.drawable.drawable104)));
-        list.add(new Gallery(getActivity().getDrawable(R.drawable.drawable105)));
-        list.add(new Gallery(getActivity().getDrawable(R.drawable.drawable106)));
+        list.add(new Gallery(getActivity().getDrawable(R.drawable.drawble1),"돈"));
+        list.add(new Gallery(getActivity().getDrawable(R.drawable.drawble2),"행복"));
+        list.add(new Gallery(getActivity().getDrawable(R.drawable.drawble3),"행복"));
+        list.add(new Gallery(getActivity().getDrawable(R.drawable.drawable101),"사랑,행복"));
+        list.add(new Gallery(getActivity().getDrawable(R.drawable.drawable102),"사랑"));
+        list.add(new Gallery(getActivity().getDrawable(R.drawable.drawable103),"실수,성숙,속죄,고통,발전"));
+        list.add(new Gallery(getActivity().getDrawable(R.drawable.drawable104),"믿음"));
+        list.add(new Gallery(getActivity().getDrawable(R.drawable.drawable105),"논리, 좋은말,성격,자기개발,자아성찰"));
+        list.add(new Gallery(getActivity().getDrawable(R.drawable.drawable106),"자기개발,자아성찰,좋은말,미래"));
 
 
 
