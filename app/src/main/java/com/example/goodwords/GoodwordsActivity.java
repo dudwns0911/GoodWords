@@ -20,7 +20,7 @@ public class GoodwordsActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_goodwords);
         int position = getIntent().getIntExtra("position", 0);
-        imageView.findViewById(R.id.iv_goodwords);
+        imageView=findViewById(R.id.iv_goodwords);
         imageView.setImageDrawable(sGoodWords.get(position).getDrawable());
     }
 }

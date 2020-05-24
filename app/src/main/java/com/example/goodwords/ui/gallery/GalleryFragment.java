@@ -54,7 +54,6 @@ public class GalleryFragment extends Fragment {
         adapter.setOnItemClickListener(new MyAdapter.OnItemClickListener() {
             @Override
             public void onItemClick(View v, int position) {
-                Toast.makeText(getContext(), position, Toast.LENGTH_SHORT).show();
                 Intent intent = new Intent(getContext(), GoodwordsActivity.class);
                 intent.putExtra("position", position);
                 startActivity(intent);
