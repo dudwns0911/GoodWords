@@ -1,4 +1,4 @@
-package com.example.goodwords;
+package com.example.goodwords.ui.gallery;
 
 import android.content.Context;
 import android.view.LayoutInflater;
@@ -10,12 +10,14 @@ import android.widget.TextView;
 import androidx.annotation.NonNull;
 import androidx.recyclerview.widget.RecyclerView;
 
+import com.example.goodwords.R;
+
 import java.util.ArrayList;
 
 public class MyAdapter extends RecyclerView.Adapter<MyAdapter.ViewHolder> {
     private ArrayList<Gallery> mMovieData = null;
 
-    public class ViewHolder extends RecyclerView.ViewHolder{
+    public class ViewHolder extends RecyclerView.ViewHolder {
         ImageView imageView;
         TextView textView;
 
@@ -26,7 +28,7 @@ public class MyAdapter extends RecyclerView.Adapter<MyAdapter.ViewHolder> {
         }
     }
 
-    public MyAdapter(ArrayList<Gallery> movieList){
+    public MyAdapter(ArrayList<Gallery> movieList) {
         mMovieData = movieList;
     }
 
@@ -34,18 +36,18 @@ public class MyAdapter extends RecyclerView.Adapter<MyAdapter.ViewHolder> {
     @NonNull
     @Override
     public MyAdapter.ViewHolder onCreateViewHolder(@NonNull ViewGroup parent, int viewType) {
-        Context context = parent.getContext() ;
-        LayoutInflater inflater = (LayoutInflater) context.getSystemService(Context.LAYOUT_INFLATER_SERVICE) ;
+        Context context = parent.getContext();
+        LayoutInflater inflater = (LayoutInflater) context.getSystemService(Context.LAYOUT_INFLATER_SERVICE);
 
-        View view = inflater.inflate(R.layout.recyclerview_item, parent, false) ;
-        MyAdapter.ViewHolder vh = new MyAdapter.ViewHolder(view) ;
+        View view = inflater.inflate(R.layout.recyclerview_item, parent, false);
+        MyAdapter.ViewHolder vh = new MyAdapter.ViewHolder(view);
 
         return vh;
     }
 
     @Override
     public void onBindViewHolder(@NonNull MyAdapter.ViewHolder holder, int position) {
-        holder.imageView.setImageDrawable(mMovieData.get(position).drawable);
+        holder.imageView.setImageDrawable(mMovieData.get(position).getDrawable());
 
     }
 

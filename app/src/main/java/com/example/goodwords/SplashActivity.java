@@ -9,7 +9,7 @@ import androidx.appcompat.app.AppCompatActivity;
 import java.util.Timer;
 import java.util.TimerTask;
 
-public class Splashactivity extends AppCompatActivity {
+public class SplashActivity extends AppCompatActivity {
 
     @Override
     protected void onCreate(@Nullable Bundle savedInstanceState) {
@@ -19,7 +19,7 @@ public class Splashactivity extends AppCompatActivity {
         TimerTask timerTask = new TimerTask() {
             @Override
             public void run() {
-                startActivity(new Intent(Splashactivity.this,MainActivity.class));
+                startActivity(new Intent(SplashActivity.this,MainActivity.class));
                 finish();
             }
         };
