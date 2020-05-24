@@ -41,6 +41,7 @@ public class SlideshowFragment extends Fragment {
         sEGoodwords.add(new Gallery(getActivity().getDrawable(R.drawable.image1),"미래"));
         sEGoodwords.add(new Gallery(getActivity().getDrawable(R.drawable.image2),"미래"));
         sEGoodwords.add(new Gallery(getActivity().getDrawable(R.drawable.image3),"공부"));
+        sEGoodwords.add(new Gallery(getActivity().getDrawable(R.drawable.image4),"공부"));
 
         RecyclerView recyclerView = view.findViewById(R.id.recycler2);
         recyclerView.setLayoutManager(new LinearLayoutManager(getContext()));
