@@ -38,11 +38,11 @@ public class SlideshowFragment extends Fragment {
     @Override
     public void onViewCreated(@NonNull View view, @Nullable Bundle savedInstanceState) {
         super.onViewCreated(view, savedInstanceState);
-        sEGoodwords.add(new Gallery(getActivity().getDrawable(R.drawable.image1),"미래"));
-        sEGoodwords.add(new Gallery(getActivity().getDrawable(R.drawable.image2),"미래"));
-        sEGoodwords.add(new Gallery(getActivity().getDrawable(R.drawable.image3),"공부"));
-        sEGoodwords.add(new Gallery(getActivity().getDrawable(R.drawable.image4),"공부"));
-        sEGoodwords.add(new Gallery(getActivity().getDrawable(R.drawable.image5),"기회"));
+        sEGoodwords.add(new Gallery(getActivity().getDrawable(R.drawable.image1),"미래","미래가 그대를 불안하게 하지 말라. 해야만 한다면 맞게 될 것이니, 오늘 현재로부터 그대를 지키는 이성이라는 동일한 무기가 함께 할 것이다."));
+        sEGoodwords.add(new Gallery(getActivity().getDrawable(R.drawable.image2),"미래","우리는 항상 젊음을 위해 미래를 개발할 수는 없지만, 미래를 위해 우리의 젊음을 개발할 수는 있다."));
+        sEGoodwords.add(new Gallery(getActivity().getDrawable(R.drawable.image3),"공부","공부벌레들에게 잘 해주십시오. 나중에 그 사람 밑에서 일하게 될 수도 있습니다."));
+        sEGoodwords.add(new Gallery(getActivity().getDrawable(R.drawable.image4),"공부","교육이란 화를 내거나 자신감을 잃지 않고도 거의 모든 것에 귀 기울일 수 있는 능력이다."));
+        sEGoodwords.add(new Gallery(getActivity().getDrawable(R.drawable.image5),"기회","사람들이 대게 기회를 놓치는 이유는 기회가 작업복 차림의 일꾼 같아 일로 보이기 때문이다."));
 
         RecyclerView recyclerView = view.findViewById(R.id.recycler2);
         recyclerView.setLayoutManager(new LinearLayoutManager(getContext()));
