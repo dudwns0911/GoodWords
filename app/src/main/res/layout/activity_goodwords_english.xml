@@ -11,10 +11,12 @@
         android:layout_height="wrap_content"/>
     <TextView
         android:id="@+id/tv_goodwords_english"
+        android:textColor="#000000"
         android:padding="10sp"
         android:layout_width="match_parent"
         android:text="테스트용 글씨"
-        android:textSize="17dp"
+        android:textSize="20sp"
+        android:textStyle="bold"
         android:layout_height="wrap_content"/>
 
 
