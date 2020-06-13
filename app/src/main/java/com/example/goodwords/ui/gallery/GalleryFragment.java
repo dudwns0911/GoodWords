@@ -47,6 +47,7 @@ public class GalleryFragment extends Fragment {
         sGoodWords.add(new Gallery(getActivity().getDrawable(R.drawable.drawable106), "자기개발,자아성찰,좋은말,미래"));
         sGoodWords.add(new Gallery(getActivity().getDrawable(R.drawable.drawable107), "고난"));
         sGoodWords.add(new Gallery(getActivity().getDrawable(R.drawable.drawable108), "인간"));
+        //108부터 S6용량 부족 사진 모두 다 픽셀 400
         sGoodWords.add(new Gallery(getActivity().getDrawable(R.drawable.drawable109), "사랑, 부족"));
         sGoodWords.add(new Gallery(getActivity().getDrawable(R.drawable.drawable110), "꿈, 목표, 계획, 실행"));
         sGoodWords.add(new Gallery(getActivity().getDrawable(R.drawable.drawable111), "천재,영감,땀"));
@@ -55,6 +56,11 @@ public class GalleryFragment extends Fragment {
         sGoodWords.add(new Gallery(getActivity().getDrawable(R.drawable.drawable114), "자기반성, 지혜"));
         sGoodWords.add(new Gallery(getActivity().getDrawable(R.drawable.drawable115), "돈, 삶, 도구"));
         sGoodWords.add(new Gallery(getActivity().getDrawable(R.drawable.drawable116), "사람"));
+        sGoodWords.add(new Gallery(getActivity().getDrawable(R.drawable.drawable117), "천재"));
+        sGoodWords.add(new Gallery(getActivity().getDrawable(R.drawable.drawable118), "규칙"));
+        sGoodWords.add(new Gallery(getActivity().getDrawable(R.drawable.drawable119), "기회"));
+        sGoodWords.add(new Gallery(getActivity().getDrawable(R.drawable.drawable120), "인간"));
+        sGoodWords.add(new Gallery(getActivity().getDrawable(R.drawable.drawable121), "계획"));
 
 
 
