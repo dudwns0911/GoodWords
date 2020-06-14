@@ -91,4 +91,5 @@ public class MyAdapter extends RecyclerView.Adapter<MyAdapter.ViewHolder> implem
     public int getItemCount() {
         return mFilteredList.size();
     }
+
 }
