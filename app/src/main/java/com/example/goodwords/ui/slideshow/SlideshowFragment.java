@@ -2,9 +2,12 @@ package com.example.goodwords.ui.slideshow;
 
 import android.content.Intent;
 import android.os.Bundle;
+import android.text.Editable;
+import android.text.TextWatcher;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.EditText;
 import android.widget.TextView;
 
 import androidx.annotation.NonNull;
@@ -23,9 +26,11 @@ import com.example.goodwords.ui.gallery.MyAdapter;
 
 import java.util.ArrayList;
 
-public class SlideshowFragment extends Fragment {
+public class SlideshowFragment extends Fragment implements TextWatcher {
     public static ArrayList<Gallery> sEGoodwords = new ArrayList<>();
     private SlideshowViewModel slideshowViewModel;
+    private MyAdapter adapter;
+    private EditText editText;
 
     public View onCreateView(@NonNull LayoutInflater inflater,
                              ViewGroup container, Bundle savedInstanceState) {
@@ -77,8 +82,9 @@ public class SlideshowFragment extends Fragment {
 
         RecyclerView recyclerView = view.findViewById(R.id.recycler2);
         recyclerView.setLayoutManager(new LinearLayoutManager(getContext()));
-
-        MyAdapter adapter = new MyAdapter(sEGoodwords);
+        editText = view.findViewById(R.id.et_english);
+        editText.addTextChangedListener(this);
+        adapter = new MyAdapter(sEGoodwords);
         adapter.setOnItemClickListener(new MyAdapter.OnItemClickListener() {
             @Override
             public void onItemClick(View v, int position) {
@@ -93,4 +99,17 @@ public class SlideshowFragment extends Fragment {
 
 
     }
+    @Override
+    public void beforeTextChanged(CharSequence s, int start, int count, int after) {
+    }
+
+    @Override
+    public void onTextChanged(CharSequence s, int start, int before, int count) {
+        adapter.getFilter().filter(s);
+    }
+
+    @Override
+    public void afterTextChanged(Editable s) {
+    }
+
 }
