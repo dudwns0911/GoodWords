@@ -2,6 +2,7 @@ package com.sample.goodwords;
 
 import android.app.Activity;
 import android.content.Intent;
+import android.content.SharedPreferences;
 import android.content.pm.PackageManager;
 import android.os.Bundle;
 import android.view.View;
@@ -10,6 +11,9 @@ import android.widget.GridView;
 
 import com.google.android.material.floatingactionbutton.FloatingActionButton;
 import com.google.android.material.navigation.NavigationView;
+import com.google.gson.Gson;
+import com.google.gson.GsonBuilder;
+import com.google.gson.reflect.TypeToken;
 
 import androidx.navigation.NavController;
 import androidx.navigation.Navigation;
@@ -18,6 +22,11 @@ import androidx.navigation.ui.NavigationUI;
 import androidx.drawerlayout.widget.DrawerLayout;
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.appcompat.widget.Toolbar;
+
+import java.lang.reflect.Type;
+import java.util.ArrayList;
+
+import static com.sample.goodwords.ApplicationClass.positionList;
 
 public class MainActivity extends AppCompatActivity {
 
@@ -72,5 +81,18 @@ public class MainActivity extends AppCompatActivity {
         NavController navController = Navigation.findNavController(this, R.id.nav_host_fragment);
         return NavigationUI.navigateUp(navController, mAppBarConfiguration)
                 || super.onSupportNavigateUp();
+    }
+
+    @Override
+    protected void onPause() {
+        super.onPause();
+        Gson gson = new GsonBuilder().create();
+        Type listType = new TypeToken<ArrayList<Integer>>() {}.getType();
+        String stringPostionList = gson.toJson(positionList, listType);
+
+        SharedPreferences sharedPreferences = getSharedPreferences("positionList", MODE_PRIVATE);
+        SharedPreferences.Editor editor = sharedPreferences.edit();
+        editor.putString("positionList", stringPostionList);
+        editor.commit();
     }
 }
