@@ -39,7 +39,7 @@ public class MainActivity extends AppCompatActivity {
             public void onClick(View view) {
                 Intent intent = new Intent(android.content.Intent.ACTION_SEND);
                 intent.setType("Text/plain");
-                String text = "간단한 공유하기를 만들 수 있습니다";
+                String text = "https://play.google.com/store/apps/details?id=com.sample.goodwords";
                 intent.putExtra(Intent.EXTRA_TEXT, text);
                 Intent chooser = Intent.createChooser(intent, "친구에게 공유하기");
                 startActivity(chooser);
