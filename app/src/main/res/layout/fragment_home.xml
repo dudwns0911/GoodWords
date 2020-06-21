@@ -20,4 +20,11 @@
         android:layout_below="@+id/btn_addwords"
         android:id="@+id/btn_addenglishwords"/>
 
+    <androidx.recyclerview.widget.RecyclerView
+        android:id="@+id/recycler3"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:scrollbars="vertical"
+        android:layout_below="@id/btn_addenglishwords"/>
+
 </RelativeLayout>
